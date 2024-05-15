@@ -20,11 +20,10 @@ The package provides several useful functions for obtaining currency information
 
 ```typescript
 // ES5
-const { getCurrency } = require('@gaignoux/currency');
+const { getCurrencyName } = require('@gaignoux/currency');
 // ES6
 import {
   getCurrencySymbol,
-  getCurrencyName,
   getCurrencyCountry,
   getCurrencyLocaleCode,
   getCurrencySymbolByLocale,

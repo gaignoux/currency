@@ -48,12 +48,14 @@ export const getCurrencySymbolByLocale = (locale: TCurrencyLocalCode): string =>
  * @returns The currency symbol associated with the country.
  */
 export const getCurrencySymbolByCountry = (country: string): string => {
-    for (const code in CurrencyCountry) {
-        if (CurrencyCountry[code as TCurrencyCode] === country) {
-            return CurrencyCountry[code as TCurrencyCode];
-        }
+  if (!Object.values(CurrencyCountry).includes(country as any)) return '';
+
+  for (const code in CurrencyCountry) {
+    if (CurrencyCountry[code as TCurrencyCode] === country) {
+      return CurrencyCountry[code as TCurrencyCode];
     }
-   return '';
+  }
+  return '';
 };
 /**
  * Gets all available currency codes.
@@ -89,5 +91,5 @@ export const getCurrencyObject = (code: TCurrencyCode): TCurrency => ({
   name: CurrencyName[code],
   symbol: CurrencySymbol[code],
   locale: CurrencyCodeLocale[code],
-  country: CurrencyCountry[code]
+  country: CurrencyCountry[code],
 });
