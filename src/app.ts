@@ -8,44 +8,44 @@ import {
 } from '@/enums';
 
 /**
- * Obtém o símbolo da moeda com base no código da moeda.
- * @param code O código da moeda.
- * @returns O símbolo da moeda.
+ * Gets the currency symbol based on the currency code.
+ * @param code The currency code.
+ * @returns The currency symbol.
  */
 export const getCurrencySymbol = (code: TCurrencyCode): string =>
   CurrencySymbol[code];
 /**
- * Obtém o nome da moeda com base no código da moeda.
- * @param code O código da moeda.
- * @returns O nome da moeda.
+ * Gets the currency name based on the currency code.
+ * @param code The currency code.
+ * @returns The name of the currency.
  */
 export const getCurrencyName = (code: TCurrencyCode): string =>
   CurrencyName[code];
 /**
- * Obtém o país associado a uma moeda com base no código da moeda.
- * @param code O código da moeda.
- * @returns O país associado à moeda.
+ * Gets the country associated with a currency based on the currency code.
+ * @param code The currency code.
+ * @returns The country associated with the currency.
  */
 export const getCurrencyCountry = (code: TCurrencyCode): string =>
   CurrencyCountry[code];
 /**
- * Obtém o código de localidade associado a uma moeda com base no código de localidade.
- * @param locale O código de localidade.
- * @returns O código de moeda associado à localidade.
+ * Gets the locale code associated with a currency based on the locale code.
+ * @param locale The locale code.
+ * @returns The currency code associated with the locale.
  */
 export const getCurrencyLocaleCode = (locale: TCurrencyLocalCode): string =>
   CurrencyLocaleCode[locale];
 /**
- * Obtém o símbolo da moeda com base no código de localidade.
- * @param locale O código de localidade.
- * @returns O símbolo da moeda associado à localidade.
+ * Gets the currency symbol based on the locale code.
+ * @param locale The locale code.
+ * @returns The currency symbol associated with the locale.
  */
 export const getCurrencySymbolByLocale = (locale: TCurrencyLocalCode): string =>
   CurrencySymbol[CurrencyLocaleCode[locale]];
 /**
- * Obtém o símbolo da moeda com base no país.
- * @param country O país associado à moeda.
- * @returns O símbolo da moeda associado ao país.
+ * Gets the currency symbol based on the country.
+ * @param country The country associated with the currency.
+ * @returns The currency symbol associated with the country.
  */
 export const getCurrencySymbolByCountry = (country: string): string => {
     for (const code in CurrencyCountry) {
@@ -56,34 +56,34 @@ export const getCurrencySymbolByCountry = (country: string): string => {
    return '';
 };
 /**
- * Obtém todos os códigos de moeda disponíveis.
- * @returns Uma lista de todos os códigos de moeda.
+ * Gets all available currency codes.
+ * @returns A list of all currency codes.
  */
 export const getAllCodes = (): string[] => Object.keys(CurrencyName);
 /**
- * Obtém todos os nomes de moeda disponíveis.
- * @returns Uma lista de todos os nomes de moeda.
+ * Gets all available currency names.
+ * @returns A list of all currency names.
  */
 export const getAllNames = (): string[] => Object.values(CurrencyName);
 /**
- * Obtém todos os símbolos de moeda disponíveis.
- * @returns Uma lista de todos os símbolos de moeda.
+ * Gets all available currency symbols.
+ * @returns A list of all currency symbols.
  */
 export const getAllSymbols = (): string[] => Object.values(CurrencySymbol);
 /**
- * Obtém todos os códigos de localidade disponíveis.
- * @returns Uma lista de todos os códigos de localidade.
+ * Gets all available locale codes.
+ * @returns A list of all locale codes.
  */
 export const getAllLocales = (): string[] => Object.keys(CurrencyLocaleCode);
 /**
- * Obtém todos os códigos de localidade disponíveis.
- * @returns Uma lista de todos os códigos de localidade.
+ * Gets all available locale codes.
+ * @returns A list of all locale codes.
  */
 export const getAllCountries = (): string[] => Object.values(CurrencyCountry);
 /**
- * Obtém um objeto contendo informações completas sobre uma moeda com base no código da moeda.
- * @param code O código da moeda.
- * @returns Um objeto contendo nome, símbolo, código de localidade e país associados à moeda.
+ * Gets an object containing complete information about a currency based on the currency code.
+ * @param code The currency code.
+ * @returns An object containing the name, symbol, locale code, and country associated with the currency.
  */
 export const getCurrencyObject = (code: TCurrencyCode): TCurrency => ({
   name: CurrencyName[code],
