@@ -1,11 +1,13 @@
 {
   "name": "@gaignoux/currency",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A way to get all currency information from around the world.",
   "packageScope": "@gaignoux",
   "main": "dist/index.js",
   "types": "dist/app.d.ts",
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "private": false,
   "devDependencies": {
     "@jest/globals": "^29.7.0",
