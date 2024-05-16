@@ -65,13 +65,16 @@ export const getCurrencySymbolByLocale = (
  */
 export const getCurrencySymbolByCountry = (country: string): string => {
   if (!Object.values(CurrencyCountry).includes(country as any)) return '';
+  let value = '';
 
   for (const code in CurrencyCountry) {
     if (CurrencyCountry[code as TCurrencyCode] === country) {
-      return CurrencySymbol[code as TCurrencyCode];
+      value = CurrencySymbol[code as TCurrencyCode];
+      break;
     }
   }
-  return '';
+
+  return value;
 };
 /**
  * Gets all available currency codes.
