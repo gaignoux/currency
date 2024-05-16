@@ -61,6 +61,6 @@ jobs:
       - name: Install dependencies 🔧
         run: npm ci
       - name: Publish package on NPM 📦
-        run: npx lerna publish --force-publish --yes
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
