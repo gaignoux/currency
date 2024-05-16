@@ -39,5 +39,20 @@
   "bugs": {
     "url": "https://github.com/gaignoux/currency/issues"
   },
-  "homepage": "https://github.com/gaignoux/currency#readme"
+  "homepage": "https://github.com/gaignoux/currency#readme",
+  "jest": {
+    "moduleNameMapper": {
+      "^@/app$": "<rootDir>/src/app",
+      "^@/enums$": "<rootDir>/src/enums/$1",
+      "^@/types$": "<rootDir>/src/types/$1"
+    },
+    "transform": {
+      ".(ts)": "<rootDir>/node_modules/ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
+  }
 }

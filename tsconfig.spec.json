@@ -4,16 +4,12 @@
       "outDir": "dist/out-tsc",
       "module": "commonjs",
       "types": ["jest", "node"],
-      "baseUrl": ".",
+      "baseUrl": "./src/",
       "paths": {
-        "@/*": ["src/*"]
+        "@/*": ["*"]
       }
     },
     "include": [
-      "jest.config.ts",
-      "test/*.test.ts",
-      "test/*.spec.ts",
-      "src/*.ts",
-      "src/**/*.d.ts"
+      "test/*"
     ]
 }

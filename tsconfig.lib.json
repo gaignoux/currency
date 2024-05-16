@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "strict": false,
+    "noErrorTruncation": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "declaration": true,
+    "allowJs": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "exclude": [
+    "test/*",
+  ],
+  "include": ["src/**/*.ts"]
+}

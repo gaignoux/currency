@@ -61,7 +61,12 @@ export const getCurrencySymbolByCountry = (country: string): string => {
  * Gets all available currency codes.
  * @returns A list of all currency codes.
  */
-export const getAllCodes = (): string[] => Object.keys(CurrencyName);
+export const getAllCodes = (): string[] => {
+  for (const name in CurrencyName) {
+   console.log(name)
+  }
+  return Object.keys(CurrencyName);
+};
 /**
  * Gets all available currency names.
  * @returns A list of all currency names.

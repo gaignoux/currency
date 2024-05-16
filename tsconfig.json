@@ -23,6 +23,14 @@
       "@/*": ["*"]
     }
   },
-  "include": ["**/*.ts"],
+  "references": [
+//    {
+//      "path": "./tsconfig.spec.json"
+//    },
+    {
+      "path": "./tsconfig.lib.json"
+    },
+  ],
+  "include": [],
   "exclude": ["node_modules"]
 }
