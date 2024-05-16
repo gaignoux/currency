@@ -46,7 +46,6 @@ jobs:
           skip-tag:  'true'
           target-branch: 'master'
           check-last-commit-only: 'true'
-        run: npx lerna publish --force-publish --yes
       - uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v4
