@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import { getAllNames } from '../app';
+import { getAllNames } from '../utils';
 import { CurrencyName } from '../enums';
 
 describe('Get All Names Test', () => {

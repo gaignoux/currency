@@ -15,6 +15,6 @@
       "node_modules/@types"
     ]
   },
-  "include": ["src/app.ts", "src/enums/*.ts", "src/types/*.ts", "src/constants/*.ts"],
-  "exclude": ["node_modules", "coverage", "dist"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "coverage", "dist", "src/tests/*"]
 }

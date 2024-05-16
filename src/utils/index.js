@@ -1,5 +1,5 @@
-import { CurrencyCodeLocale, CurrencyCountry, CurrencyName, CurrencySymbol, } from './enums';
-import { CurrencyLocaleCode } from './constants';
+import { CurrencyCodeLocale, CurrencyCountry, CurrencyName, CurrencySymbol, } from '../enums';
+import { CurrencyLocaleCode } from '../constants';
 /**
  * Gets the currency symbol based on the currency code.
  * @param code The currency code.
@@ -48,12 +48,14 @@ export const getCurrencySymbolByLocale = (locale) => {
 export const getCurrencySymbolByCountry = (country) => {
     if (!Object.values(CurrencyCountry).includes(country))
         return '';
+    let value = '';
     for (const code in CurrencyCountry) {
         if (CurrencyCountry[code] === country) {
-            return CurrencySymbol[code];
+            value = CurrencySymbol[code];
+            break;
         }
     }
-    return '';
+    return value;
 };
 /**
  * Gets all available currency codes.
@@ -101,4 +103,4 @@ export const getCurrencyObject = (code) => {
         country: CurrencyCountry[code],
     };
 };
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=index.js.map

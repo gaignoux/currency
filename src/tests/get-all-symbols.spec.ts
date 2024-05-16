@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import { getAllSymbols } from '../app';
+import { getAllSymbols } from '../utils';
 import { CurrencySymbol } from '../enums';
 
 describe('Get All Symbols Test', () => {

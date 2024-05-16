@@ -1,4 +1,4 @@
-import { getCurrencySymbolByLocale } from '../app';
+import { getCurrencySymbolByLocale } from '../utils';
 import { TCurrencyLocalCode } from '../types';
 import { CurrencySymbol } from '../enums';
 import { describe, it, expect } from '@jest/globals';

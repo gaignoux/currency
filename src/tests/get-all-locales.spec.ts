@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import { getAllLocales } from '../app';
+import { getAllLocales } from '../utils';
 import { CurrencyLocaleCode } from '../constants';
 
 describe('Get All Locales Test', () => {
