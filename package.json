@@ -4,9 +4,10 @@
   "description": "A way to get all currency information from around the world.",
   "packageScope": "@gaignoux",
   "main": "dist/index.js",
-  "types": "dist/app.d.ts",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist/*"
+    "dist/**/*"
   ],
   "private": false,
   "devDependencies": {
