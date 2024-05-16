@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import { TCurrencyCode } from '../types';
-import { getCurrencyObject } from '../app';
+import { getCurrencyObject } from '../utils';
 import { CurrencyCode } from '../enums';
 
 describe('Get Currency Object Test', () => {

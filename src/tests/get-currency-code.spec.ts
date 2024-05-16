@@ -1,4 +1,4 @@
-import { getCurrencyCountry } from '../app';
+import { getCurrencyCountry } from '../utils';
 import { TCurrencyCode } from '../types';
 import { describe, it, expect } from '@jest/globals';
 
