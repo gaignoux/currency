@@ -1,6 +1,6 @@
 # Currency Localization Package
 
-## Instalation
+## Installation
 
 To install the package you can use npm or yarn:
 
