@@ -3,10 +3,10 @@ import {
   CurrencyCountry,
   CurrencyName,
   CurrencySymbol,
-} from '@/enums';
+} from '../enums';
 
 /**
- * Tipo referente aos dados da moeda
+ * The type is used to represent complete currency data, including name, symbol, locale code, and associated country.
  */
 export type TCurrency = {
   name: CurrencyName;
@@ -16,7 +16,7 @@ export type TCurrency = {
 };
 
 /**
- * Tipo com todos os códigos de moeda disponíveis
+ * Type with all available currency codes
  */
 export type TCurrencyCode =
   | 'AED'
@@ -199,7 +199,7 @@ export type TCurrencyCode =
   | 'ZMW';
 
 /**
- * Tipo com todos os códigos de localidade disponíveis
+ * Type with all available locale codes
  */
 export type TCurrencyLocalCode =
   | 'ar-AE'
@@ -360,7 +360,7 @@ export type TCurrencyLocalCode =
   | 'en-ZM';
 
 /**
- * Tipo com todos os simbolos de moeda disponíveis
+ * Type with all available currency symbols
  */
 export type TCurrencySymbol =
   | 'د.إ'

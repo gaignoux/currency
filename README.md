@@ -55,8 +55,8 @@ console.log('Currency Object:', getCurrencyObject(currencyCode));
 - `getCurrencySymbol(code: TCurrencyCode): string`: Returns the currency symbol based on the currency code.
 - `getCurrencyName(code: TCurrencyCode): string`: Returns the currency name based on the currency code.
 - `getCurrencyCountry(code: TCurrencyCode): string`: Returns the country associated with a currency based on the currency code.
-- `getCurrencyLocaleCode(locale: TCurrencyLocalCode): string`: Returns the locale code associated with a currency based on the locale code.
-- `getCurrencySymbolByLocale(locale: TCurrencyLocalCode): string`: Returns the currency symbol based on the locale code.
+- `getCurrencyLocaleCode(locale: TCurrencyLocalCode): string`: Returns the locale code associated with a currency or an array of them based on the locale code.
+- `getCurrencySymbolByLocale(locale: TCurrencyLocalCode): string`: Returns the currency symbol or an array of them based on the locale code.
 - `getCurrencySymbolByCountry(country: string): string`: Returns the currency symbol based on the country.
 - `getAllCodes(): string[]`: Returns all available currency codes.
 - `getAllNames(): string[]`: Returns all available currency names.
@@ -103,9 +103,13 @@ The type consists of the following fields:
 
 > Relationship between the currency code and its name
 
-#### CurrencyLocaleCode
+#### CurrencyCode
 
-> Relationship between the locale code and its currency code.
+> All currency code available.
+
+#### CurrencyLocale
+
+> All currency locale available.
 
 #### CurrencyCodeLocale
 

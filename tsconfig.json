@@ -1,36 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["esnext"],
-    "noImplicitAny": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "module": "es6",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": false,
-    "noEmit": false,
-    "rootDir": ".",
-    "outDir": "dist",
-    "baseUrl": "./src/",
+    "target": "es6",
+    "module": "es6",
+    "lib": ["esnext"],
+    "strict": true,
     "sourceMap": true,
-    "paths": {
-      "@/*": ["*"]
-    }
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declarationDir": "dist",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
-  "references": [
-//    {
-//      "path": "./tsconfig.spec.json"
-//    },
-    {
-      "path": "./tsconfig.lib.json"
-    },
-  ],
-  "include": [],
-  "exclude": ["node_modules"]
+  "include": ["src/app.ts", "src/enums/*.ts", "src/types/*.ts", "src/constants/*.ts"],
+  "exclude": ["node_modules", "coverage", "dist"]
 }

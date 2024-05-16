@@ -1,11 +1,11 @@
-import { TCurrency, TCurrencyCode, TCurrencyLocalCode } from '@/types';
+import { TCurrency, TCurrencyCode, TCurrencyLocalCode } from './types';
 import {
   CurrencyCodeLocale,
   CurrencyCountry,
-  CurrencyLocaleCode,
   CurrencyName,
   CurrencySymbol,
-} from '@/enums';
+} from './enums';
+import { CurrencyLocaleCode } from './constants';
 
 /**
  * Gets the currency symbol based on the currency code.
@@ -29,19 +29,35 @@ export const getCurrencyName = (code: TCurrencyCode): string =>
 export const getCurrencyCountry = (code: TCurrencyCode): string =>
   CurrencyCountry[code];
 /**
- * Gets the locale code associated with a currency based on the locale code.
+ * Gets the locale code associated with a currency or an array of them based on the locale code.
  * @param locale The locale code.
- * @returns The currency code associated with the locale.
+ * @returns The currency code associated with the locale or an array of them.
  */
-export const getCurrencyLocaleCode = (locale: TCurrencyLocalCode): string =>
-  CurrencyLocaleCode[locale];
+export const getCurrencyLocaleCode = (
+  locale: TCurrencyLocalCode
+): string | string[] => CurrencyLocaleCode[locale];
 /**
- * Gets the currency symbol based on the locale code.
+ * Gets the currency symbol or an array of them based on the locale code.
  * @param locale The locale code.
- * @returns The currency symbol associated with the locale.
+ * @returns The currency symbol associated with the locale or an array of them.
  */
-export const getCurrencySymbolByLocale = (locale: TCurrencyLocalCode): string =>
-  CurrencySymbol[CurrencyLocaleCode[locale]];
+export const getCurrencySymbolByLocale = (
+  locale: TCurrencyLocalCode
+): string | string[] => {
+  const localeCode = CurrencyLocaleCode[locale];
+
+  if (!Array.isArray(localeCode)) {
+    return CurrencySymbol[localeCode];
+  }
+
+  const symbols: string[] = [];
+
+  for (const code of localeCode) {
+    symbols.push(CurrencySymbol[code]);
+  }
+
+  return symbols;
+};
 /**
  * Gets the currency symbol based on the country.
  * @param country The country associated with the currency.
@@ -52,7 +68,7 @@ export const getCurrencySymbolByCountry = (country: string): string => {
 
   for (const code in CurrencyCountry) {
     if (CurrencyCountry[code as TCurrencyCode] === country) {
-      return CurrencyCountry[code as TCurrencyCode];
+      return CurrencySymbol[code as TCurrencyCode];
     }
   }
   return '';
@@ -62,9 +78,6 @@ export const getCurrencySymbolByCountry = (country: string): string => {
  * @returns A list of all currency codes.
  */
 export const getAllCodes = (): string[] => {
-  for (const name in CurrencyName) {
-   console.log(name)
-  }
   return Object.keys(CurrencyName);
 };
 /**
@@ -92,9 +105,20 @@ export const getAllCountries = (): string[] => Object.values(CurrencyCountry);
  * @param code The currency code.
  * @returns An object containing the name, symbol, locale code, and country associated with the currency.
  */
-export const getCurrencyObject = (code: TCurrencyCode): TCurrency => ({
-  name: CurrencyName[code],
-  symbol: CurrencySymbol[code],
-  locale: CurrencyCodeLocale[code],
-  country: CurrencyCountry[code],
-});
+export const getCurrencyObject = (code: TCurrencyCode): TCurrency => {
+  if (
+    !Object.keys(CurrencyName).includes(code) ||
+    !Object.keys(CurrencySymbol).includes(code) ||
+    !Object.keys(CurrencyCodeLocale).includes(code) ||
+    !Object.keys(CurrencyCountry).includes(code)
+  ) {
+    throw new Error('Invalid currency code');
+  }
+
+  return {
+    name: CurrencyName[code],
+    symbol: CurrencySymbol[code],
+    locale: CurrencyCodeLocale[code],
+    country: CurrencyCountry[code],
+  };
+};

@@ -1,5 +1,5 @@
-import { getCurrencyCountry } from '@/app';
-import { TCurrencyCode } from '@/types';
+import { getCurrencyCountry } from '../app';
+import { TCurrencyCode } from '../types';
 import { describe, it, expect } from '@jest/globals';
 
 describe('Get Currency Code Test', () => {

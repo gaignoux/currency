@@ -1,6 +1,5 @@
-import { getCurrencySymbolByCountry } from '@/app';
-import { TCurrencyLocalCode } from '@/types';
-import { CurrencySymbol } from '@/enums';
+import { getCurrencySymbolByCountry } from '../app';
+import { CurrencySymbol } from '../enums';
 import { describe, it, expect } from '@jest/globals';
 
 describe('Get Currency Symbol by Country Test', () => {

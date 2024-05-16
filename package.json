@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "description": "A way to get all currency information from around the world.",
   "packageScope": "@gaignoux",
-  "main": "index.js",
-  "module": "dist/index.js",
+  "main": "dist/bundle.js",
+  "types": "dist/app.d.ts",
+  "files": ["dist/*"],
+  "private": false,
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "jest": "^29.7.0",
     "prettier": "^3.2.5",
+    "terser-webpack-plugin": "^5.3.10",
     "ts-jest": "^29.1.2",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
+    "tsconfig-paths-jest": "^0.0.1",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "^5.4.5",
     "webpack": "^5.91.0",
@@ -20,8 +24,8 @@
   },
   "scripts": {
     "start": "npx webpack serve",
-    "build": "npx webpack build --mode production",
-    "test": "jest --config ",
+    "build": "npx tsc --project tsconfig.build.json && npx webpack build --mode production",
+    "test": "jest",
     "format": "npx prettier . --write"
   },
   "repository": {
@@ -39,20 +43,5 @@
   "bugs": {
     "url": "https://github.com/gaignoux/currency/issues"
   },
-  "homepage": "https://github.com/gaignoux/currency#readme",
-  "jest": {
-    "moduleNameMapper": {
-      "^@/app$": "<rootDir>/src/app",
-      "^@/enums$": "<rootDir>/src/enums/$1",
-      "^@/types$": "<rootDir>/src/types/$1"
-    },
-    "transform": {
-      ".(ts)": "<rootDir>/node_modules/ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ]
-  }
+  "homepage": "https://github.com/gaignoux/currency#readme"
 }
