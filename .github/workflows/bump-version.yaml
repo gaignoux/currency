@@ -9,6 +9,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.VERSION_BUMPER_SECRET }}
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
       - uses: actions/checkout@v2
       - name: Bump version and push tag
         id: tag_version
