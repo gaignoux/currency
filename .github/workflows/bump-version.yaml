@@ -62,9 +62,11 @@ jobs:
         run: npm ci && npm i rimraf
       - name: Build version
         run: npm run build
-      - name: Publish package on NPM 📦
-        run: npm publish --access public
+      - name: Build version
+        run: npm run build:docs
       - name: Publish docs to github pages
         run: npm run publish:docs
+      - name: Publish package on NPM 📦
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
