@@ -1,6 +1,7 @@
-const { cd, exec, echo, touch } = require('shelljs');
-const { readFileSync } = require('fs');
-const url = require('url');
+import shelljs from 'shelljs';
+const { cd, exec, echo, touch } = shelljs;
+import { readFileSync } from 'fs';
+import url from 'url';
 
 let repoUrl;
 let pkg = JSON.parse(readFileSync('package.json') as any);
@@ -15,7 +16,7 @@ if (typeof pkg.repository === 'object') {
 
 let parsedUrl = url.parse(repoUrl);
 let repository = (parsedUrl.host || '') + (parsedUrl.path || '');
-let ghToken = process.env.GH_TOKEN;
+let ghToken = process.env.GITHUB_TOKEN;
 
 echo('Deploying docs! ');
 cd('docs');
