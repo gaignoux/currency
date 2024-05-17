@@ -33,7 +33,7 @@
     "start": "npx webpack serve",
     "prebuild": "rimraf dist",
     "build": "npx tsc --project tsconfig.build.json && npx webpack build --mode production",
-    "postpublish": "npx typedoc --entryPoints src/enums/index.ts --entryPoints src/types/index.ts --entryPoints src/constants/index.ts --entryPoints src/utils/index.ts",
+    "build:docs": "npx typedoc --entryPoints src/enums/index.ts --entryPoints src/types/index.ts --entryPoints src/constants/index.ts --entryPoints src/utils/index.ts",
     "publish:docs": "npx ts-node --esm tools/gh-docs-publish.ts",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
