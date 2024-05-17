@@ -62,8 +62,8 @@ jobs:
         run: npm ci && npm i rimraf
       - name: Build version
         run: npm run build
-      - name: Build version
-        run: npm run build:docs
+      - name: Build docs
+        run: npm run build:docs && npm install -g ts-node
       - name: Publish docs to github pages
         run: npm run publish:docs
       - name: Publish package on NPM 📦
