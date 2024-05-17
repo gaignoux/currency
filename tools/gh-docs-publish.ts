@@ -17,7 +17,7 @@ let parsedUrl = url.parse(repoUrl);
 let repository = (parsedUrl.host || '') + (parsedUrl.path || '');
 let ghToken = process.env.GH_TOKEN;
 
-echo('Deploying docs!');
+echo('Deploying docs! ');
 cd('docs');
 touch('.nojekyll');
 exec('git init');
