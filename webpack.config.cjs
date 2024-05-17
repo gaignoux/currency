@@ -1,6 +1,6 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-// const path = require('path');
+const path = require('path');
 
 module.exports = {
   entry: './src/index.ts',
@@ -9,7 +9,7 @@ module.exports = {
   output: {
     library: '@gaignoux/currency',
     libraryTarget: 'umd',
-    // path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
   },
   module: {
