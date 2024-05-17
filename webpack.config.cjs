@@ -1,13 +1,13 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const path = require('path');
 
 module.exports = {
   entry: './src/index.ts',
   devtool: 'inline-source-map',
   mode: 'development',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    library: '@gaignoux/currency',
+    libraryTarget: 'umd',
     filename: 'index.js',
   },
   module: {
