@@ -3,9 +3,10 @@
   "version": "0.0.5",
   "description": "A way to get all currency information from around the world.",
   "packageScope": "@gaignoux",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "type": "module",
   "files": [
     "dist/*"
   ],
@@ -27,6 +28,7 @@
   },
   "scripts": {
     "start": "npx webpack serve",
+    "prebuild": "rimraf dist",
     "build": "npx tsc --project tsconfig.build.json && npx webpack build --mode production",
     "test": "jest",
     "format": "npx prettier . --write"
