@@ -1,11 +1,11 @@
 {
   "name": "@gaignoux/currency",
-  "version": "0.0.8",
+  "version": "0.0.7",
   "description": "A way to get all currency information from around the world.",
   "packageScope": "@gaignoux",
-  "main": "index.js",
-  "module": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "files": [
     "dist/*"
