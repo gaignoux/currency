@@ -64,5 +64,7 @@ jobs:
         run: npm run build
       - name: Publish package on NPM 📦
         run: npm publish --access public
+      - name: Publish docs to github pages
+        run: npm run publish:docs
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
