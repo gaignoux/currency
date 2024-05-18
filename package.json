@@ -7,6 +7,9 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "private": false,
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@rollup/plugin-commonjs": "^21.0.1",
