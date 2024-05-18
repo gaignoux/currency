@@ -74,6 +74,7 @@ jobs:
         run: npm run build
       - name: Build docs
         run: npm run build:docs && npm install -g ts-node
+      - uses: actions/checkout@v2
       - name: Publish docs to github pages
         run:  |
           echo 'Deploying docs!'
@@ -84,7 +85,8 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git commit -m "docs(docs): update gh-pages"
-          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/gaignoux/currency.git" master:gh-pages
+          git fetch --prune --unshallow
+          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/gaignoux/currency" master:gh-pages
           echo 'Docs deployed!'
       - name: Publish package on NPM 📦
         run: npm publish --access public
