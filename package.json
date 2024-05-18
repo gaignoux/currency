@@ -1,6 +1,6 @@
 {
   "name": "@gaignoux/currency",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A way to get all currency information from around the world.",
   "packageScope": "@gaignoux",
   "main": "dist/index.js",
@@ -35,7 +35,11 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "format": "npx prettier . --write",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "version": "git add -A src",
+    "publish:patch": "npm version patch && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:major": "npm version major && npm publish"
   },
   "repository": {
     "type": "git",
