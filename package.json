@@ -39,7 +39,7 @@
     "version": "git add -A src",
     "publish:patch": "npm version patch && npm publish",
     "publish:minor": "npm version minor && npm publish",
-    "publish:major": "npm version major && npm publish",
+    "publish:major": "npm version major && npm publish"
   },
   "repository": {
     "type": "git",
