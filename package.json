@@ -1,6 +1,6 @@
 {
   "name": "@gaignoux/currency",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A way to get all currency information from around the world.",
   "packageScope": "@gaignoux",
   "main": "dist/index.js",
@@ -34,7 +34,8 @@
     "build:docs": "npx typedoc --entryPoints src/enums/index.ts --entryPoints src/types/index.ts --entryPoints src/constants/index.ts --entryPoints src/utils/index.ts",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
