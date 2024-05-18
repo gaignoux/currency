@@ -47,11 +47,11 @@ jobs:
       - name: Publish package on NPM and update package.json
         run: |
           if [[ $(git log -1 | grep -o fix:) ]]; 
-            then npm run version:patch -m "Upgrade to patch %s" --no-git-tag-version --access public
+            then npm run publish:patch -m "Upgrade to patch %s" --no-git-tag-version --access public
           elif [[ $(git log -1 | grep -o feat:) ]]; 
-            then npm run version:minor -m "Upgrade to minor %s" --no-git-tag-version --access public
+            then npm run publish:minor -m "Upgrade to minor %s" --no-git-tag-version --access public
           elif [[ $(git log -1 | grep -o release:) ]]; 
-            then npm run version:major -m "Upgrade to major %s" --no-git-tag-version --access public
+            then npm run publish:major -m "Upgrade to major %s" --no-git-tag-version --access public
           else
             echo "Commit message does not match any versioning convention. Skipping version increment."
           fi
