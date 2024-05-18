@@ -49,21 +49,17 @@ jobs:
           commitlint --from=master --to=HEAD
       - name: Update package.json
         run: |
-          # Obter a mensagem do commit mais recente
-          COMMIT_MSG=$(git log --format=%B -n 1)
-
-          # Verificar o tipo de commit e incrementar a versão apropriadamente
-          if [[ $COMMIT_MSG == 'fix:'* ]]; then
-            npm version patch -m "Upgrade to patch %s"
-          elif [[ $COMMIT_MSG == 'feat:'* ]]; then
-            npm version minor -m "Upgrade to minor %s"
-          elif [[ $COMMIT_MSG == 'release:'* ]]; then
-            npm version major -m "Upgrade to major %s"
+          if [[ $(git log -1 | grep -o fix:) ]]; 
+            then npm version patch -m "Upgrade to patch %s"
+          elif [[ $(git log -1 | grep -o feat:) ]]; 
+            then npm version minor -m "Upgrade to minor %s"
+          elif [[ $(git log -1 | grep -o release:) ]]; 
+            then npm version major -m "Upgrade to major %s"
           else
             echo "Commit message does not match any versioning convention. Skipping version increment."
           fi
 
-          git push origin master
+          git push origin master --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v4
@@ -88,10 +84,9 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git commit -m "docs(docs): update gh-pages"
-          git push --force --quiet "https://${{ secrets.VERSION_BUMPER_SECRET }}@github.com/gaignoux/currency.git" master:gh-pages
+          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/gaignoux/currency.git" master:gh-pages
           echo 'Docs deployed!'
       - name: Publish package on NPM 📦
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          VERSION_BUMPER_SECRET: ${{ secrets.VERSION_BUMPER_SECRET }}
