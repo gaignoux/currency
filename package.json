@@ -1,6 +1,6 @@
 {
   "name": "@gaignoux/currency",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A way to get all currency information from around the world.",
   "packageScope": "@gaignoux",
   "main": "dist/index.js",
@@ -34,7 +34,7 @@
     "prebuild": "rimraf dist",
     "build": "tsc && rollup -c rollup.config.js",
     "build:docs": "npx typedoc --entryPoints src/enums/index.ts --entryPoints src/types/index.ts --entryPoints src/constants/index.ts --entryPoints src/utils/index.ts",
-    "publish:docs": "ts-node --esm tools/gh-docs-publish.ts",
+    "publish:docs": "node tools/gh-docs-publish.mjs",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "format": "npx prettier . --write"

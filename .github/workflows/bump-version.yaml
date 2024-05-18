@@ -79,7 +79,17 @@ jobs:
       - name: Build docs
         run: npm run build:docs && npm install -g ts-node
       - name: Publish docs to github pages
-        run: npm run publish:docs
+        run:  |
+          echo 'Deploying docs!'
+          cd docs
+          touch .nojekyll
+          git init
+          git add .
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git commit -m "docs(docs): update gh-pages"
+          git push --force --quiet "https://${{ secrets.VERSION_BUMPER_SECRET }}@github.com/${{ vars.BASE_REPOSITORY }}" master:gh-pages
+          echo 'Docs deployed!'
       - name: Publish package on NPM 📦
         run: npm publish --access public
         env:
