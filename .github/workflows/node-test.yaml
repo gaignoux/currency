@@ -14,6 +14,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - run: npm ci && npm i rimraf
+      - run: npm i && npm i rimraf
       - run: npm run build --if-present
       - run: npm test
