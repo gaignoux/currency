@@ -5,16 +5,13 @@
     "module": "es6",
     "lib": ["esnext"],
     "strict": true,
-    "sourceMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
     "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declarationDir": "dist",
-    "outDir": "dist",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "declarationDir": "./dist",
+    "rootDir": "./src",
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "coverage", "dist", "src/tests/*", "docs"]

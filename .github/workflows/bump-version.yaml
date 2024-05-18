@@ -38,20 +38,34 @@ jobs:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
-      - uses: actions/checkout@v1
-      - name: Push version
-        uses: phips28/gh-action-bump-version@v11.0.5
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Validate commits
+        run: |
+          npm install -g @commitlint/{config-conventional,cli}
+          echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+          commitlint --from=master --to=HEAD
+      - name: Update package.json
+        run: |
+          # Obter a mensagem do commit mais recente
+          COMMIT_MSG=$(git log --format=%B -n 1)
+
+          # Verificar o tipo de commit e incrementar a versão apropriadamente
+          if [[ $COMMIT_MSG == 'fix:'* ]]; then
+            npm version patch -m "Upgrade to patch %s"
+          elif [[ $COMMIT_MSG == 'feat:'* ]]; then
+            npm version minor -m "Upgrade to minor %s"
+          elif [[ $COMMIT_MSG == 'release:'* ]]; then
+            npm version major -m "Upgrade to major %s"
+          else
+            echo "Commit message does not match any versioning convention. Skipping version increment."
+          fi
+
+          git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          minor-wording:  'add,feat,new'
-          major-wording:  'major,cut-major'
-          patch-wording:  'patch,fix'
-          rc-wording:     'release,alpha'
-          tag-prefix:  'v'
-          skip-tag:  'true'
-          target-branch: 'master'
-          check-last-commit-only: 'true'
       - uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -70,3 +84,4 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          VERSION_BUMPER_SECRET: ${{ secrets.VERSION_BUMPER_SECRET }}
