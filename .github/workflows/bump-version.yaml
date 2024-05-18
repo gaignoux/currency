@@ -88,7 +88,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git commit -m "docs(docs): update gh-pages"
-          git push --force --quiet "https://${{ secrets.VERSION_BUMPER_SECRET }}@github.com/${{ vars.BASE_REPOSITORY }}" master:gh-pages
+          git push --force --quiet "https://${{ secrets.VERSION_BUMPER_SECRET }}@github.com/gaignoux/currency.git" master:gh-pages
           echo 'Docs deployed!'
       - name: Publish package on NPM 📦
         run: npm publish --access public
