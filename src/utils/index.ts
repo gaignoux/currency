@@ -1,11 +1,6 @@
 import { TCurrency, TCurrencyCode, TCurrencyLocalCode } from '../types';
-import {
-  CurrencyCodeLocale,
-  CurrencyCountry,
-  CurrencyName,
-  CurrencySymbol,
-} from '../enums';
-import { CurrencyLocaleCode } from '../constants';
+import { CurrencyCountry, CurrencyName, CurrencySymbol } from '../enums';
+import { CurrencyLocaleCode, CurrencyCodeLocale } from '../constants';
 
 /**
  * Gets the currency symbol based on the currency code.
