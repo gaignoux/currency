@@ -1,0 +1,866 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@gaignoux/currency</title><meta name="description" content="Documentation for @gaignoux/currency"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@gaignoux/currency</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h2>@gaignoux/currency</h2></div><div class="tsd-panel tsd-typography"><a id="md:currency-localization-package" class="tsd-anchor"></a><h1><a href="#md:currency-localization-package">Currency Localization Package</a></h1><p>A way to get all currency information from around the world.</p>
+<a id="md:installation" class="tsd-anchor"></a><h2><a href="#md:installation">Installation</a></h2><p>To install the package you can use npm or yarn:</p>
+<pre><code class="language-bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-2">@gaignoux/currency</span>
+</code><button>Copy</button></pre>
+<p>or</p>
+<pre><code class="language-bash"><span class="hl-0">yarn</span><span class="hl-1"> </span><span class="hl-2">add</span><span class="hl-1"> </span><span class="hl-2">@gaignoux/currency</span>
+</code><button>Copy</button></pre>
+<a id="md:usage" class="tsd-anchor"></a><h2><a href="#md:usage">Usage</a></h2><p>The package provides several useful functions for obtaining currency information. Here&#39;s an example of how to use it:</p>
+<pre><code class="language-typescript"><span class="hl-3">// ES5</span><br/><span class="hl-4">const</span><span class="hl-1"> { </span><span class="hl-5">getCurrencyName</span><span class="hl-1"> } = </span><span class="hl-0">require</span><span class="hl-1">(</span><span class="hl-2">&#39;@gaignoux/currency&#39;</span><span class="hl-1">);</span><br/><span class="hl-3">// ES6</span><br/><span class="hl-6">import</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-7">getCurrencySymbol</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-7">getCurrencyCountry</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-7">getCurrencyLocaleCode</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-7">getCurrencySymbolByLocale</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-7">getCurrencySymbolByCountry</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-7">getAllCodes</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-7">getAllNames</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-7">getAllSymbols</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-7">getAllLocales</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-7">getCurrencyObject</span><span class="hl-1">,</span><br/><span class="hl-1">} </span><span class="hl-6">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@gaignoux/currency&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">currencyCode</span><span class="hl-1"> = </span><span class="hl-2">&#39;USD&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;Name:&#39;</span><span class="hl-1">, </span><span class="hl-0">getCurrencyName</span><span class="hl-1">(</span><span class="hl-7">currencyCode</span><span class="hl-1">));</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;Symbol:&#39;</span><span class="hl-1">, </span><span class="hl-0">getCurrencySymbol</span><span class="hl-1">(</span><span class="hl-7">currencyCode</span><span class="hl-1">));</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;Country:&#39;</span><span class="hl-1">, </span><span class="hl-0">getCurrencyCountry</span><span class="hl-1">(</span><span class="hl-7">currencyCode</span><span class="hl-1">));</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;Locale Code:&#39;</span><span class="hl-1">, </span><span class="hl-0">getCurrencyLocaleCode</span><span class="hl-1">(</span><span class="hl-2">&#39;en-US&#39;</span><span class="hl-1">));</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;Symbol by Locale:&#39;</span><span class="hl-1">, </span><span class="hl-0">getCurrencySymbolByLocale</span><span class="hl-1">(</span><span class="hl-2">&#39;en-US&#39;</span><span class="hl-1">));</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;Symbol by Country:&#39;</span><span class="hl-1">, </span><span class="hl-0">getCurrencySymbolByCountry</span><span class="hl-1">(</span><span class="hl-2">&#39;United States&#39;</span><span class="hl-1">));</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;All Codes:&#39;</span><span class="hl-1">, </span><span class="hl-0">getAllCodes</span><span class="hl-1">());</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;All Names:&#39;</span><span class="hl-1">, </span><span class="hl-0">getAllNames</span><span class="hl-1">());</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;All Symbols:&#39;</span><span class="hl-1">, </span><span class="hl-0">getAllSymbols</span><span class="hl-1">());</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;All Locales:&#39;</span><span class="hl-1">, </span><span class="hl-0">getAllLocales</span><span class="hl-1">());</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-2">&#39;Currency Object:&#39;</span><span class="hl-1">, </span><span class="hl-0">getCurrencyObject</span><span class="hl-1">(</span><span class="hl-7">currencyCode</span><span class="hl-1">));</span>
+</code><button>Copy</button></pre>
+<a id="md:countries-covered" class="tsd-anchor"></a><h2><a href="#md:countries-covered">Countries covered</a></h2><table>
+<thead>
+<tr>
+<th>Locale Code</th>
+<th>Country</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ar-AE</td>
+<td>United Arab Emirates</td>
+</tr>
+<tr>
+<td>ps-AF</td>
+<td>Afghanistan</td>
+</tr>
+<tr>
+<td>sq-AL</td>
+<td>Albania</td>
+</tr>
+<tr>
+<td>hy-AM</td>
+<td>Armenia</td>
+</tr>
+<tr>
+<td>nl-AW</td>
+<td>Aruba</td>
+</tr>
+<tr>
+<td>pt-AO</td>
+<td>Angola</td>
+</tr>
+<tr>
+<td>es-AR</td>
+<td>Argentina</td>
+</tr>
+<tr>
+<td>en-AU</td>
+<td>Australia</td>
+</tr>
+<tr>
+<td>az-AZ</td>
+<td>Azerbaijan</td>
+</tr>
+<tr>
+<td>bs-BA</td>
+<td>Bosnia and Herzegovina</td>
+</tr>
+<tr>
+<td>en-BB</td>
+<td>Barbados</td>
+</tr>
+<tr>
+<td>bn-BD</td>
+<td>Bangladesh</td>
+</tr>
+<tr>
+<td>bg-BG</td>
+<td>Bulgaria</td>
+</tr>
+<tr>
+<td>ar-BH</td>
+<td>Bahrain</td>
+</tr>
+<tr>
+<td>fr-BI</td>
+<td>Burundi</td>
+</tr>
+<tr>
+<td>en-BM</td>
+<td>Bermuda</td>
+</tr>
+<tr>
+<td>ms-BN</td>
+<td>Brunei Darussalam</td>
+</tr>
+<tr>
+<td>es-BO</td>
+<td>Bolivia</td>
+</tr>
+<tr>
+<td>pt-BR</td>
+<td>Brazil</td>
+</tr>
+<tr>
+<td>en-BS</td>
+<td>Bahamas</td>
+</tr>
+<tr>
+<td>dz-BT</td>
+<td>Bhutan</td>
+</tr>
+<tr>
+<td>en-BW</td>
+<td>Botswana</td>
+</tr>
+<tr>
+<td>be-BY</td>
+<td>Belarus</td>
+</tr>
+<tr>
+<td>en-BZ</td>
+<td>Belize</td>
+</tr>
+<tr>
+<td>en-CA</td>
+<td>Canada</td>
+</tr>
+<tr>
+<td>fr-CD</td>
+<td>Democratic Republic of the Congo</td>
+</tr>
+<tr>
+<td>de-CH</td>
+<td>Switzerland</td>
+</tr>
+<tr>
+<td>es-CL</td>
+<td>Chile</td>
+</tr>
+<tr>
+<td>zh-CN</td>
+<td>China</td>
+</tr>
+<tr>
+<td>es-CO</td>
+<td>Colombia</td>
+</tr>
+<tr>
+<td>es-CR</td>
+<td>Costa Rica</td>
+</tr>
+<tr>
+<td>es-CU</td>
+<td>Cuba</td>
+</tr>
+<tr>
+<td>pt-CV</td>
+<td>Cabo Verde</td>
+</tr>
+<tr>
+<td>cs-CZ</td>
+<td>Czech Republic</td>
+</tr>
+<tr>
+<td>fr-DJ</td>
+<td>Djibouti</td>
+</tr>
+<tr>
+<td>da-DK</td>
+<td>Denmark</td>
+</tr>
+<tr>
+<td>es-DO</td>
+<td>Dominican Republic</td>
+</tr>
+<tr>
+<td>ar-DZ</td>
+<td>Algeria</td>
+</tr>
+<tr>
+<td>ar-EG</td>
+<td>Egypt</td>
+</tr>
+<tr>
+<td>ti-ER</td>
+<td>Eritrea</td>
+</tr>
+<tr>
+<td>am-ET</td>
+<td>Ethiopia</td>
+</tr>
+<tr>
+<td>en-GB</td>
+<td>United Kingdom</td>
+</tr>
+<tr>
+<td>en-FJ</td>
+<td>Fiji</td>
+</tr>
+<tr>
+<td>en-FK</td>
+<td>Falkland Islands (Malvinas)</td>
+</tr>
+<tr>
+<td>ka-GE</td>
+<td>Georgia</td>
+</tr>
+<tr>
+<td>en-GH</td>
+<td>Ghana</td>
+</tr>
+<tr>
+<td>en-GI</td>
+<td>Gibraltar</td>
+</tr>
+<tr>
+<td>en-GM</td>
+<td>Gambia</td>
+</tr>
+<tr>
+<td>fr-GN</td>
+<td>Guinea</td>
+</tr>
+<tr>
+<td>es-GT</td>
+<td>Guatemala</td>
+</tr>
+<tr>
+<td>en-GY</td>
+<td>Guyana</td>
+</tr>
+<tr>
+<td>zh-HK</td>
+<td>Hong Kong</td>
+</tr>
+<tr>
+<td>es-HN</td>
+<td>Honduras</td>
+</tr>
+<tr>
+<td>hr-HR</td>
+<td>Croatia</td>
+</tr>
+<tr>
+<td>ht-HT</td>
+<td>Haiti</td>
+</tr>
+<tr>
+<td>hu-HU</td>
+<td>Hungary</td>
+</tr>
+<tr>
+<td>id-ID</td>
+<td>Indonesia</td>
+</tr>
+<tr>
+<td>he-IL</td>
+<td>Israel</td>
+</tr>
+<tr>
+<td>hi-IN</td>
+<td>India</td>
+</tr>
+<tr>
+<td>ar-IQ</td>
+<td>Iraq</td>
+</tr>
+<tr>
+<td>fa-IR</td>
+<td>Iran</td>
+</tr>
+<tr>
+<td>is-IS</td>
+<td>Iceland</td>
+</tr>
+<tr>
+<td>en-JM</td>
+<td>Jamaica</td>
+</tr>
+<tr>
+<td>ar-JO</td>
+<td>Jordan</td>
+</tr>
+<tr>
+<td>ja-JP</td>
+<td>Japan</td>
+</tr>
+<tr>
+<td>sw-KE</td>
+<td>Kenya</td>
+</tr>
+<tr>
+<td>ky-KG</td>
+<td>Kyrgyzstan</td>
+</tr>
+<tr>
+<td>km-KH</td>
+<td>Cambodia</td>
+</tr>
+<tr>
+<td>ar-KM</td>
+<td>Comoros</td>
+</tr>
+<tr>
+<td>ko-KP</td>
+<td>Democratic People&#39;s Republic of Korea</td>
+</tr>
+<tr>
+<td>ko-KR</td>
+<td>Republic of Korea</td>
+</tr>
+<tr>
+<td>ar-KW</td>
+<td>Kuwait</td>
+</tr>
+<tr>
+<td>en-KY</td>
+<td>Cayman Islands</td>
+</tr>
+<tr>
+<td>kk-KZ</td>
+<td>Kazakhstan</td>
+</tr>
+<tr>
+<td>lo-LA</td>
+<td>Laos</td>
+</tr>
+<tr>
+<td>ar-LB</td>
+<td>Lebanon</td>
+</tr>
+<tr>
+<td>si-LK</td>
+<td>Sri Lanka</td>
+</tr>
+<tr>
+<td>en-LR</td>
+<td>Liberia</td>
+</tr>
+<tr>
+<td>st-LS</td>
+<td>Lesotho</td>
+</tr>
+<tr>
+<td>lt-LT</td>
+<td>Lithuania</td>
+</tr>
+<tr>
+<td>lv-LV</td>
+<td>Latvia</td>
+</tr>
+<tr>
+<td>ar-LY</td>
+<td>Libya</td>
+</tr>
+<tr>
+<td>ar-MA</td>
+<td>Morocco</td>
+</tr>
+<tr>
+<td>ro-MD</td>
+<td>Moldova</td>
+</tr>
+<tr>
+<td>mg-MG</td>
+<td>Madagascar</td>
+</tr>
+<tr>
+<td>mk-MK</td>
+<td>North Macedonia</td>
+</tr>
+<tr>
+<td>my-MM</td>
+<td>Myanmar</td>
+</tr>
+<tr>
+<td>mn-MN</td>
+<td>Mongolia</td>
+</tr>
+<tr>
+<td>zh-MO</td>
+<td>Macao</td>
+</tr>
+<tr>
+<td>ar-MR</td>
+<td>Mauritania</td>
+</tr>
+<tr>
+<td>en-MU</td>
+<td>Mauritius</td>
+</tr>
+<tr>
+<td>dv-MV</td>
+<td>Maldives</td>
+</tr>
+<tr>
+<td>ny-MW</td>
+<td>Malawi</td>
+</tr>
+<tr>
+<td>es-MX</td>
+<td>Mexico</td>
+</tr>
+<tr>
+<td>ms-MY</td>
+<td>Malaysia</td>
+</tr>
+<tr>
+<td>pt-MZ</td>
+<td>Mozambique</td>
+</tr>
+<tr>
+<td>af-NA</td>
+<td>Namibia</td>
+</tr>
+<tr>
+<td>ig-NG</td>
+<td>Nigeria</td>
+</tr>
+<tr>
+<td>es-NI</td>
+<td>Nicaragua</td>
+</tr>
+<tr>
+<td>nb-NO</td>
+<td>Norway</td>
+</tr>
+<tr>
+<td>ne-NP</td>
+<td>Nepal</td>
+</tr>
+<tr>
+<td>en-NZ</td>
+<td>New Zealand</td>
+</tr>
+<tr>
+<td>ar-OM</td>
+<td>Oman</td>
+</tr>
+<tr>
+<td>es-PA</td>
+<td>Panama</td>
+</tr>
+<tr>
+<td>es-PE</td>
+<td>Peru</td>
+</tr>
+<tr>
+<td>en-PG</td>
+<td>Papua New Guinea</td>
+</tr>
+<tr>
+<td>en-PH</td>
+<td>Philippines</td>
+</tr>
+<tr>
+<td>ur-PK</td>
+<td>Pakistan</td>
+</tr>
+<tr>
+<td>pl-PL</td>
+<td>Poland</td>
+</tr>
+<tr>
+<td>es-PY</td>
+<td>Paraguay</td>
+</tr>
+<tr>
+<td>ar-QA</td>
+<td>Qatar</td>
+</tr>
+<tr>
+<td>ro-RO</td>
+<td>Romania</td>
+</tr>
+<tr>
+<td>sr-RS</td>
+<td>Serbia</td>
+</tr>
+<tr>
+<td>ru-RU</td>
+<td>Russia</td>
+</tr>
+<tr>
+<td>rw-RW</td>
+<td>Rwanda</td>
+</tr>
+<tr>
+<td>ar-SA</td>
+<td>Saudi Arabia</td>
+</tr>
+<tr>
+<td>en-SB</td>
+<td>Solomon Islands</td>
+</tr>
+<tr>
+<td>en-SC</td>
+<td>Seychelles</td>
+</tr>
+<tr>
+<td>ar-SD</td>
+<td>Sudan</td>
+</tr>
+<tr>
+<td>sv-SE</td>
+<td>Sweden</td>
+</tr>
+<tr>
+<td>en-SG</td>
+<td>Singapore</td>
+</tr>
+<tr>
+<td>en-SH</td>
+<td>Saint Helena</td>
+</tr>
+<tr>
+<td>en-SL</td>
+<td>Sierra Leone</td>
+</tr>
+<tr>
+<td>so-SO</td>
+<td>Somalia</td>
+</tr>
+<tr>
+<td>nl-SR</td>
+<td>Suriname</td>
+</tr>
+<tr>
+<td>en-SS</td>
+<td>South Sudan</td>
+</tr>
+<tr>
+<td>pt-ST</td>
+<td>Sao Tome and Principe</td>
+</tr>
+<tr>
+<td>ar-SY</td>
+<td>Syria</td>
+</tr>
+<tr>
+<td>ss-SZ</td>
+<td>Eswatini</td>
+</tr>
+<tr>
+<td>th-TH</td>
+<td>Thailand</td>
+</tr>
+<tr>
+<td>tg-TJ</td>
+<td>Tajikistan</td>
+</tr>
+<tr>
+<td>tk-TM</td>
+<td>Turkmenistan</td>
+</tr>
+<tr>
+<td>ar-TN</td>
+<td>Tunisia</td>
+</tr>
+<tr>
+<td>to-TO</td>
+<td>Tonga</td>
+</tr>
+<tr>
+<td>tr-TR</td>
+<td>Turkey</td>
+</tr>
+<tr>
+<td>en-TT</td>
+<td>Trinidad and Tobago</td>
+</tr>
+<tr>
+<td>zh-TW</td>
+<td>Taiwan</td>
+</tr>
+<tr>
+<td>sw-TZ</td>
+<td>Tanzania</td>
+</tr>
+<tr>
+<td>uk-UA</td>
+<td>Ukraine</td>
+</tr>
+<tr>
+<td>sw-UG</td>
+<td>Uganda</td>
+</tr>
+<tr>
+<td>en-US</td>
+<td>United States of America</td>
+</tr>
+<tr>
+<td>es-UY</td>
+<td>Uruguay</td>
+</tr>
+<tr>
+<td>uz-UZ</td>
+<td>Uzbekistan</td>
+</tr>
+<tr>
+<td>es-VE</td>
+<td>Venezuela</td>
+</tr>
+<tr>
+<td>vi-VN</td>
+<td>Vietnam</td>
+</tr>
+<tr>
+<td>en-VU</td>
+<td>Vanuatu</td>
+</tr>
+<tr>
+<td>sm-WS</td>
+<td>Samoa</td>
+</tr>
+<tr>
+<td>fr-CM</td>
+<td>Cameroon</td>
+</tr>
+<tr>
+<td>en</td>
+<td>Global (Generic)</td>
+</tr>
+<tr>
+<td>en-VC</td>
+<td>Saint Vincent and the Grenadines</td>
+</tr>
+<tr>
+<td>fr-BJ</td>
+<td>Benin</td>
+</tr>
+<tr>
+<td>fr-PF</td>
+<td>French Polynesia</td>
+</tr>
+<tr>
+<td>ar-YE</td>
+<td>Yemen</td>
+</tr>
+<tr>
+<td>zu-ZA</td>
+<td>South Africa</td>
+</tr>
+<tr>
+<td>en-ZM</td>
+<td>Zambia</td>
+</tr>
+<tr>
+<td>nl-BE</td>
+<td>Belgium</td>
+</tr>
+<tr>
+<td>nl-NL</td>
+<td>Netherlands</td>
+</tr>
+<tr>
+<td>pt-PT</td>
+<td>Portugal</td>
+</tr>
+<tr>
+<td>es-ES</td>
+<td>Spain</td>
+</tr>
+<tr>
+<td>fr-BE</td>
+<td>Belgium (French)</td>
+</tr>
+<tr>
+<td>fr-FR</td>
+<td>France</td>
+</tr>
+<tr>
+<td>it-IT</td>
+<td>Italy</td>
+</tr>
+<tr>
+<td>de-DE</td>
+<td>Germany</td>
+</tr>
+<tr>
+<td>de-AT</td>
+<td>Austria</td>
+</tr>
+<tr>
+<td>el-GR</td>
+<td>Greece</td>
+</tr>
+<tr>
+<td>ee-EE</td>
+<td>Estonia</td>
+</tr>
+<tr>
+<td>fi-FI</td>
+<td>Finland</td>
+</tr>
+<tr>
+<td>ga-IE</td>
+<td>Ireland</td>
+</tr>
+<tr>
+<td>mt-MT</td>
+<td>Malta</td>
+</tr>
+<tr>
+<td>sk-SK</td>
+<td>Slovakia</td>
+</tr>
+<tr>
+<td>sl-SI</td>
+<td>Slovenia</td>
+</tr>
+<tr>
+<td>fr-LU</td>
+<td>Luxembourg</td>
+</tr>
+<tr>
+<td>de-LU</td>
+<td>Luxembourg (German)</td>
+</tr>
+<tr>
+<td>lb-LU</td>
+<td>Luxembourg (Letzeburgesch)</td>
+</tr>
+<tr>
+<td>cy-CY</td>
+<td>Cyprus</td>
+</tr>
+<tr>
+<td>ad-AD</td>
+<td>Andorra</td>
+</tr>
+<tr>
+<td>al-AL</td>
+<td>Albania</td>
+</tr>
+<tr>
+<td>by-BY</td>
+<td>Belarus</td>
+</tr>
+<tr>
+<td>ba-BA</td>
+<td>Bosnia and Herzegovina (Bosnian)</td>
+</tr>
+<tr>
+<td>cz-CZ</td>
+<td>Czech Republic</td>
+</tr>
+<tr>
+<td>dk-DK</td>
+<td>Denmark</td>
+</tr>
+<tr>
+<td>fo-FO</td>
+<td>Faroe Islands</td>
+</tr>
+<tr>
+<td>gi-GI</td>
+<td>Gibraltar</td>
+</tr>
+<tr>
+<td>il-IL</td>
+<td>Israel</td>
+</tr>
+<tr>
+<td>xk-XK</td>
+<td>Kosovo</td>
+</tr>
+<tr>
+<td>li-LI</td>
+<td>Liechtenstein</td>
+</tr>
+<tr>
+<td>lu-LU</td>
+<td>Luxembourg</td>
+</tr>
+<tr>
+<td>md-MD</td>
+<td>Moldova</td>
+</tr>
+<tr>
+<td>mc-MC</td>
+<td>Monaco</td>
+</tr>
+<tr>
+<td>me-ME</td>
+<td>Montenegro</td>
+</tr>
+<tr>
+<td>no-NO</td>
+<td>Norway</td>
+</tr>
+<tr>
+<td>rs-RS</td>
+<td>Serbia</td>
+</tr>
+<tr>
+<td>sm-SM</td>
+<td>San Marino</td>
+</tr>
+<tr>
+<td>si-SI</td>
+<td>Slovenia</td>
+</tr>
+<tr>
+<td>se-SE</td>
+<td>Sweden</td>
+</tr>
+<tr>
+<td>ch-CH</td>
+<td>Switzerland</td>
+</tr>
+<tr>
+<td>ua-UA</td>
+<td>Ukraine</td>
+</tr>
+<tr>
+<td>va-VA</td>
+<td>Vatican City</td>
+</tr>
+</tbody></table>
+<a id="md:available-methods" class="tsd-anchor"></a><h2><a href="#md:available-methods">Available methods</a></h2><ul>
+<li><code>getCurrencySymbol(code: TCurrencyCode): string</code>: Returns the currency symbol based on the currency code.</li>
+<li><code>getCurrencyName(code: TCurrencyCode): string</code>: Returns the currency name based on the currency code.</li>
+<li><code>getCurrencyCountry(code: TCurrencyCode): string</code>: Returns the country associated with a currency based on the currency code.</li>
+<li><code>getCurrencyLocaleCode(locale: TCurrencyLocalCode): string</code>: Returns the locale code associated with a currency or an array of them based on the locale code.</li>
+<li><code>getCurrencySymbolByLocale(locale: TCurrencyLocalCode): string</code>: Returns the currency symbol or an array of them based on the locale code.</li>
+<li><code>getCurrencySymbolByCountry(country: string): string</code>: Returns the currency symbol based on the country.</li>
+<li><code>getAllCodes(): string[]</code>: Returns all available currency codes.</li>
+<li><code>getAllNames(): string[]</code>: Returns all available currency names.</li>
+<li><code>getAllSymbols(): string[]</code>: Returns all available currency symbols.</li>
+<li><code>getAllLocales(): string[]</code>: Returns all available locale codes.</li>
+<li><code>getCurrencyObject(code: TCurrencyCode): TCurrency</code>: Returns an object containing complete information about a currency based on the currency code.</li>
+</ul>
+<a id="md:type-information" class="tsd-anchor"></a><h2><a href="#md:type-information">Type information</a></h2><p>With this package, you can use the available enums and types, such as:</p>
+<a id="md:types" class="tsd-anchor"></a><h3><a href="#md:types">Types</a></h3><a id="md:tcurrency" class="tsd-anchor"></a><h4><a href="#md:tcurrency">TCurrency</a></h4><blockquote>
+<p>The type is used to represent complete currency data, including name, symbol, locale code, and associated country.</p>
+</blockquote>
+<p>The type consists of the following fields:</p>
+<ul>
+<li><code>name: CurrencyName</code>: The currency name.</li>
+<li><code>symbol: CurrencySymbol</code>: The currency symbol.</li>
+<li><code>locale: TCurrencyLocalCode | TCurrencyLocalCode[]</code>: The locale code associated with the currency.</li>
+<li><code>country: CurrencyCountry</code>: The country associated with the currency.</li>
+</ul>
+<a id="md:tcurrencycode" class="tsd-anchor"></a><h4><a href="#md:tcurrencycode">TCurrencyCode</a></h4><blockquote>
+<p>Type with all available currency codes</p>
+</blockquote>
+<a id="md:tcurrencylocalcode" class="tsd-anchor"></a><h4><a href="#md:tcurrencylocalcode">TCurrencyLocalCode</a></h4><blockquote>
+<p>Type with all available locale codes</p>
+</blockquote>
+<a id="md:tcurrencysymbol" class="tsd-anchor"></a><h4><a href="#md:tcurrencysymbol">TCurrencySymbol</a></h4><blockquote>
+<p>Type with all available currency symbols</p>
+</blockquote>
+<a id="md:enums" class="tsd-anchor"></a><h3><a href="#md:enums">Enums</a></h3><a id="md:currencysymbol" class="tsd-anchor"></a><h4><a href="#md:currencysymbol">CurrencySymbol</a></h4><blockquote>
+<p>Relationship between the currency code and its symbol.</p>
+</blockquote>
+<a id="md:currencyname" class="tsd-anchor"></a><h4><a href="#md:currencyname">CurrencyName</a></h4><blockquote>
+<p>Relationship between the currency code and its name</p>
+</blockquote>
+<a id="md:currencycode" class="tsd-anchor"></a><h4><a href="#md:currencycode">CurrencyCode</a></h4><blockquote>
+<p>All currency code available.</p>
+</blockquote>
+<a id="md:currencylocale" class="tsd-anchor"></a><h4><a href="#md:currencylocale">CurrencyLocale</a></h4><blockquote>
+<p>All currency locale available.</p>
+</blockquote>
+<a id="md:currencycountry" class="tsd-anchor"></a><h4><a href="#md:currencycountry">CurrencyCountry</a></h4><blockquote>
+<p>Relationship between the currency code and the country that uses it.</p>
+</blockquote>
+<a id="md:constants" class="tsd-anchor"></a><h3><a href="#md:constants">Constants</a></h3><a id="md:currencylocalecode" class="tsd-anchor"></a><h4><a href="#md:currencylocalecode">CurrencyLocaleCode</a></h4><blockquote>
+<p>Relationship between the locale code and its currency code.</p>
+</blockquote>
+<a id="md:currencycodelocale" class="tsd-anchor"></a><h4><a href="#md:currencycodelocale">CurrencyCodeLocale</a></h4><blockquote>
+<p>Relationship between the currency code and its locale code.</p>
+</blockquote>
+<a id="md:contribute" class="tsd-anchor"></a><h2><a href="#md:contribute">Contribute</a></h2><p>Feel free to contribute or fork, but the purpose of this package is to be a hub of information that is often difficult to find elsewhere and is used daily in development. Clone it, make your changes, respect the organization, write a test to cover the change, and submit the PR.</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-index-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><h4 class="uppercase">Member Visibility</h4><form><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div><div class="tsd-theme-toggle"><h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:currency-localization-package"><span>Currency <wbr/>Localization <wbr/>Package</span></a><ul><li><a href="#md:installation"><span>Installation</span></a></li><li><a href="#md:usage"><span>Usage</span></a></li><li><a href="#md:countries-covered"><span>Countries covered</span></a></li><li><a href="#md:available-methods"><span>Available methods</span></a></li><li><a href="#md:type-information"><span>Type information</span></a></li><li><ul><li><a href="#md:types"><span>Types</span></a></li><li><ul><li><a href="#md:tcurrency"><span>TCurrency</span></a></li><li><a href="#md:tcurrencycode"><span>TCurrency<wbr/>Code</span></a></li><li><a href="#md:tcurrencylocalcode"><span>TCurrency<wbr/>Local<wbr/>Code</span></a></li><li><a href="#md:tcurrencysymbol"><span>TCurrency<wbr/>Symbol</span></a></li></ul></li><li><a href="#md:enums"><span>Enums</span></a></li><li><ul><li><a href="#md:currencysymbol"><span>Currency<wbr/>Symbol</span></a></li><li><a href="#md:currencyname"><span>Currency<wbr/>Name</span></a></li><li><a href="#md:currencycode"><span>Currency<wbr/>Code</span></a></li><li><a href="#md:currencylocale"><span>Currency<wbr/>Locale</span></a></li><li><a href="#md:currencycountry"><span>Currency<wbr/>Country</span></a></li></ul></li><li><a href="#md:constants"><span>Constants</span></a></li><li><ul><li><a href="#md:currencylocalecode"><span>Currency<wbr/>Locale<wbr/>Code</span></a></li><li><a href="#md:currencycodelocale"><span>Currency<wbr/>Code<wbr/>Locale</span></a></li></ul></li></ul></li><li><a href="#md:contribute"><span>Contribute</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="index.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="assets/icons.svg#icon-1"></use></svg><span>@gaignoux/currency</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>
