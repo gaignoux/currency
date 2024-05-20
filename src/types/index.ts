@@ -1,9 +1,4 @@
-import {
-  CurrencyCodeLocale,
-  CurrencyCountry,
-  CurrencyName,
-  CurrencySymbol,
-} from '../enums';
+import { CurrencyCountry, CurrencyName, CurrencySymbol } from '../enums';
 
 /**
  * The type is used to represent complete currency data, including name, symbol, locale code, and associated country.
@@ -11,7 +6,7 @@ import {
 export type TCurrency = {
   name: CurrencyName;
   symbol: CurrencySymbol;
-  locale: CurrencyCodeLocale;
+  locale: TCurrencyLocalCode | TCurrencyLocalCode[];
   country: CurrencyCountry;
 };
 
@@ -202,162 +197,205 @@ export type TCurrencyCode =
  * Type with all available locale codes
  */
 export type TCurrencyLocalCode =
-  | 'ar-AE'
-  | 'ps-AF'
-  | 'sq-AL'
-  | 'hy-AM'
-  | 'nl-AW'
-  | 'pt-AO'
-  | 'es-AR'
-  | 'en-AU'
-  | 'az-AZ'
-  | 'bs-BA'
-  | 'en-BB'
-  | 'bn-BD'
-  | 'bg-BG'
-  | 'ar-BH'
-  | 'fr-BI'
-  | 'en-BM'
-  | 'ms-BN'
-  | 'es-BO'
-  | 'pt-BR'
-  | 'en-BS'
-  | 'dz-BT'
-  | 'en-BW'
-  | 'be-BY'
-  | 'en-BZ'
-  | 'en-CA'
-  | 'fr-CD'
-  | 'de-CH'
-  | 'fr-CH'
-  | 'es-CL'
-  | 'zh-CN'
-  | 'es-CO'
-  | 'es-CR'
-  | 'es-CU'
-  | 'pt-CV'
-  | 'cs-CZ'
-  | 'fr-DJ'
-  | 'da-DK'
-  | 'es-DO'
-  | 'ar-DZ'
-  | 'ar-EG'
-  | 'ti-ER'
-  | 'am-ET'
-  | 'en-GB'
-  | 'en-FJ'
-  | 'en-FK'
-  | 'ka-GE'
-  | 'en-GH'
-  | 'en-GI'
-  | 'en-GM'
-  | 'fr-GN'
-  | 'es-GT'
-  | 'en-GY'
-  | 'zh-HK'
-  | 'es-HN'
-  | 'hr-HR'
-  | 'ht-HT'
-  | 'hu-HU'
-  | 'id-ID'
-  | 'he-IL'
-  | 'hi-IN'
-  | 'ar-IQ'
-  | 'fa-IR'
-  | 'is-IS'
-  | 'en-JM'
-  | 'ar-JO'
-  | 'ja-JP'
-  | 'sw-KE'
-  | 'ky-KG'
-  | 'km-KH'
-  | 'ar-KM'
-  | 'ko-KP'
-  | 'ko-KR'
-  | 'ar-KW'
-  | 'en-KY'
-  | 'kk-KZ'
-  | 'lo-LA'
-  | 'ar-LB'
-  | 'si-LK'
-  | 'en-LR'
-  | 'st-LS'
-  | 'lt-LT'
-  | 'lv-LV'
-  | 'ar-LY'
-  | 'ar-MA'
-  | 'ro-MD'
-  | 'mg-MG'
-  | 'mk-MK'
-  | 'my-MM'
-  | 'mn-MN'
-  | 'zh-MO'
-  | 'ar-MR'
-  | 'en-MU'
-  | 'dv-MV'
-  | 'ny-MW'
-  | 'es-MX'
-  | 'ms-MY'
-  | 'pt-MZ'
-  | 'af-NA'
-  | 'ig-NG'
-  | 'es-NI'
-  | 'nb-NO'
-  | 'ne-NP'
-  | 'en-NZ'
-  | 'ar-OM'
-  | 'es-PA'
-  | 'es-PE'
-  | 'en-PG'
-  | 'en-PH'
-  | 'ur-PK'
-  | 'pl-PL'
-  | 'es-PY'
-  | 'ar-QA'
-  | 'ro-RO'
-  | 'sr-RS'
-  | 'ru-RU'
-  | 'rw-RW'
-  | 'ar-SA'
-  | 'en-SB'
-  | 'en-SC'
-  | 'ar-SD'
-  | 'sv-SE'
-  | 'en-SG'
-  | 'en-SH'
-  | 'en-SL'
-  | 'so-SO'
-  | 'nl-SR'
-  | 'en-SS'
-  | 'pt-ST'
-  | 'ar-SY'
-  | 'ss-SZ'
-  | 'th-TH'
-  | 'tg-TJ'
-  | 'tk-TM'
-  | 'ar-TN'
-  | 'to-TO'
-  | 'tr-TR'
-  | 'en-TT'
-  | 'zh-TW'
-  | 'sw-TZ'
-  | 'uk-UA'
-  | 'sw-UG'
-  | 'en-US'
-  | 'es-UY'
-  | 'uz-UZ'
-  | 'es-VE'
-  | 'vi-VN'
-  | 'en-VU'
-  | 'sm-WS'
-  | 'fr-CM'
-  | 'en'
-  | 'en-VC'
-  | 'fr-BJ'
-  | 'fr-PF'
-  | 'ar-YE'
-  | 'zu-ZA'
-  | 'en-ZM';
+  | 'ar-AE' // United Arab Emirates
+  | 'ps-AF' // Afghanistan
+  | 'sq-AL' // Albania
+  | 'hy-AM' // Armenia
+  | 'nl-AW' // Aruba
+  | 'pt-AO' // Angola
+  | 'es-AR' // Argentina
+  | 'en-AU' // Australia
+  | 'az-AZ' // Azerbaijan
+  | 'bs-BA' // Bosnia and Herzegovina
+  | 'en-BB' // Barbados
+  | 'bn-BD' // Bangladesh
+  | 'bg-BG' // Bulgaria
+  | 'ar-BH' // Bahrain
+  | 'fr-BI' // Burundi
+  | 'en-BM' // Bermuda
+  | 'ms-BN' // Brunei
+  | 'es-BO' // Bolivia
+  | 'pt-BR' // Brazil
+  | 'en-BS' // Bahamas
+  | 'dz-BT' // Bhutan
+  | 'en-BW' // Botswana
+  | 'be-BY' // Belarus
+  | 'en-BZ' // Belize
+  | 'en-CA' // Canada
+  | 'fr-CD' // Democratic Republic of the Congo
+  | 'de-CH' // Switzerland
+  | 'fr-CH' // Switzerland
+  | 'es-CL' // Chile
+  | 'zh-CN' // China
+  | 'es-CO' // Colombia
+  | 'es-CR' // Costa Rica
+  | 'es-CU' // Cuba
+  | 'pt-CV' // Cape Verde
+  | 'cs-CZ' // Czech Republic
+  | 'fr-DJ' // Djibouti
+  | 'da-DK' // Denmark
+  | 'es-DO' // Dominican Republic
+  | 'ar-DZ' // Algeria
+  | 'ar-EG' // Egypt
+  | 'ti-ER' // Eritrea
+  | 'am-ET' // Ethiopia
+  | 'en-GB' // United Kingdom
+  | 'en-FJ' // Fiji
+  | 'en-FK' // Falkland Islands
+  | 'ka-GE' // Georgia
+  | 'en-GH' // Ghana
+  | 'en-GI' // Gibraltar
+  | 'en-GM' // Gambia
+  | 'fr-GN' // Guinea
+  | 'es-GT' // Guatemala
+  | 'en-GY' // Guyana
+  | 'zh-HK' // Hong Kong
+  | 'es-HN' // Honduras
+  | 'hr-HR' // Croatia
+  | 'ht-HT' // Haiti
+  | 'hu-HU' // Hungary
+  | 'id-ID' // Indonesia
+  | 'he-IL' // Israel
+  | 'hi-IN' // India
+  | 'ar-IQ' // Iraq
+  | 'fa-IR' // Iran
+  | 'is-IS' // Iceland
+  | 'en-JM' // Jamaica
+  | 'ar-JO' // Jordan
+  | 'ja-JP' // Japan
+  | 'sw-KE' // Kenya
+  | 'ky-KG' // Kyrgyzstan
+  | 'km-KH' // Cambodia
+  | 'ar-KM' // Comoros
+  | 'ko-KP' // North Korea
+  | 'ko-KR' // South Korea
+  | 'ar-KW' // Kuwait
+  | 'en-KY' // Cayman Islands
+  | 'kk-KZ' // Kazakhstan
+  | 'lo-LA' // Laos
+  | 'ar-LB' // Lebanon
+  | 'si-LK' // Sri Lanka
+  | 'en-LR' // Liberia
+  | 'st-LS' // Lesotho
+  | 'lt-LT' // Lithuania
+  | 'lv-LV' // Latvia
+  | 'ar-LY' // Libya
+  | 'ar-MA' // Morocco
+  | 'ro-MD' // Moldova
+  | 'mg-MG' // Madagascar
+  | 'mk-MK' // North Macedonia
+  | 'my-MM' // Myanmar
+  | 'mn-MN' // Mongolia
+  | 'zh-MO' // Macau
+  | 'ar-MR' // Mauritania
+  | 'en-MU' // Mauritius
+  | 'dv-MV' // Maldives
+  | 'ny-MW' // Malawi
+  | 'es-MX' // Mexico
+  | 'ms-MY' // Malaysia
+  | 'pt-MZ' // Mozambique
+  | 'af-NA' // Namibia
+  | 'ig-NG' // Nigeria
+  | 'es-NI' // Nicaragua
+  | 'nb-NO' // Norway
+  | 'ne-NP' // Nepal
+  | 'en-NZ' // New Zealand
+  | 'ar-OM' // Oman
+  | 'es-PA' // Panama
+  | 'es-PE' // Peru
+  | 'en-PG' // Papua New Guinea
+  | 'en-PH' // Philippines
+  | 'ur-PK' // Pakistan
+  | 'pl-PL' // Poland
+  | 'es-PY' // Paraguay
+  | 'ar-QA' // Qatar
+  | 'ro-RO' // Romania
+  | 'sr-RS' // Serbia
+  | 'ru-RU' // Russia
+  | 'rw-RW' // Rwanda
+  | 'ar-SA' // Saudi Arabia
+  | 'en-SB' // Solomon Islands
+  | 'en-SC' // Seychelles
+  | 'ar-SD' // Sudan
+  | 'sv-SE' // Sweden
+  | 'en-SG' // Singapore
+  | 'en-SH' // Saint Helena
+  | 'en-SL' // Sierra Leone
+  | 'so-SO' // Somalia
+  | 'nl-SR' // Suriname
+  | 'en-SS' // South Sudan
+  | 'pt-ST' // Sao Tome and Principe
+  | 'ar-SY' // Syria
+  | 'ss-SZ' // Eswatini
+  | 'th-TH' // Thailand
+  | 'tg-TJ' // Tajikistan
+  | 'tk-TM' // Turkmenistan
+  | 'ar-TN' // Tunisia
+  | 'to-TO' // Tonga
+  | 'tr-TR' // Turkey
+  | 'en-TT' // Trinidad and Tobago
+  | 'zh-TW' // Taiwan
+  | 'sw-TZ' // Tanzania
+  | 'uk-UA' // Ukraine
+  | 'sw-UG' // Uganda
+  | 'en-US' // United States
+  | 'es-UY' // Uruguay
+  | 'uz-UZ' // Uzbekistan
+  | 'es-VE' // Venezuela
+  | 'vi-VN' // Vietnam
+  | 'en-VU' // Vanuatu
+  | 'sm-WS' // Samoa
+  | 'fr-CM' // Cameroon
+  | 'en' // Generic English
+  | 'en-VC' // Saint Vincent and the Grenadines
+  | 'fr-BJ' // Benin
+  | 'fr-PF' // French Polynesia
+  | 'ar-YE' // Yemen
+  | 'zu-ZA' // South Africa
+  | 'en-ZM' // Zambia
+  | 'nl-BE' // Belgium
+  | 'nl-NL' // Netherlands
+  | 'pt-PT' // Portugal
+  | 'es-ES' // Spain
+  | 'fr-BE' // Belgium
+  | 'fr-FR' // France
+  | 'it-IT' // Italy
+  | 'de-DE' // Germany
+  | 'de-AT' // Austria
+  | 'el-GR' // Greece
+  | 'ee-EE' // Estonia
+  | 'fi-FI' // Finland
+  | 'ga-IE' // Ireland
+  | 'mt-MT' // Malta
+  | 'sk-SK' // Slovakia
+  | 'sl-SI' // Slovenia
+  | 'fr-LU' // Luxembourg
+  | 'de-LU' // Luxembourg
+  | 'lb-LU' // Luxembourgish
+  | 'cy-CY' // Cyprus
+  | 'ad-AD' // Andorra
+  | 'al-AL' // Albania
+  | 'by-BY' // Belarus
+  | 'ba-BA' // Bosnia and Herzegovina
+  | 'cz-CZ' // Czech Republic
+  | 'dk-DK' // Denmark
+  | 'fo-FO' // Faroe Islands
+  | 'gi-GI' // Gibraltar
+  | 'il-IL' // Israel
+  | 'xk-XK' // Kosovo
+  | 'li-LI' // Liechtenstein
+  | 'lu-LU' // Luxembourg
+  | 'md-MD' // Moldova
+  | 'mc-MC' // Monaco
+  | 'me-ME' // Montenegro
+  | 'no-NO' // Norway
+  | 'rs-RS' // Serbia
+  | 'sm-SM' // San Marino
+  | 'si-SI' // Slovenia
+  | 'se-SE' // Sweden
+  | 'ch-CH' // Switzerland
+  | 'ua-UA' // Ukraine
+  | 'va-VA'; // Vatican City
 
 /**
  * Type with all available currency symbols
